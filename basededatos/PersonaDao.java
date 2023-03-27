@@ -1,9 +1,9 @@
 package basededatos;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import model.Cliente;
+import model.Producto;
 
 public class PersonaDao {
 
@@ -61,15 +61,15 @@ public class PersonaDao {
             ps = con.prepareStatement(sql);
             ps.setString(1, producto.getNombre());
             ps.setString(2, producto.getDescripcion());
-            ps.setDouble(3, producto.getPrecio());
+            ps.setBigDecimal(3, producto.getPrecio());
             ps.setString(4, producto.getTipoProducto());
             ps.setInt(5, producto.getCantidad());
             ps.setDate(6, new java.sql.Date(producto.getFechaRegistro().getTime()));
             ps.setDate(7, new java.sql.Date(producto.getFechaEntrega().getTime()));
             ps.setString(8, producto.getBodegaEntrega());
-            ps.setDouble(9, producto.getPrecioEnvio());
+            ps.setBigDecimal(9, producto.getPrecioEnvio());
             ps.setString(10, producto.getPlacaVehiculo());
-            ps.setString(11, producto.getNumGuia());
+            ps.setString(11, producto.getNumeroGuia());
 
             int filasAfectadas = ps.executeUpdate();
             if (filasAfectadas > 0) {

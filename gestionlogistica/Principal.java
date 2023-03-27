@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 import basededatos.PersonaDao;
 import basededatos.ConexionBD;
 import model.Bodega;
-import java.util.Date;
 
 
 
@@ -85,14 +84,15 @@ public class Principal {
 	                	BigDecimal precioProducto = new BigDecimal(JOptionPane.showInputDialog("Ingrese el precio del producto:"));
 	                	String tipoProducto = JOptionPane.showInputDialog("Ingrese el tipo de producto:");
 	                	int cantidadProducto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad del producto:"));
-	                	Date fechaRegistro = new Date();
+	                	Date fechaRegistro = new Date(System.currentTimeMillis());
 	                	String bodegaEntrega = JOptionPane.showInputDialog("Ingrese la bodega de entrega:");
 	                	BigDecimal precioEnvio = new BigDecimal(JOptionPane.showInputDialog("Ingrese el precio del envío:"));
 	                	String placaVehiculo = JOptionPane.showInputDialog("Ingrese la placa del vehículo:");
 	                	String numeroGuia = JOptionPane.showInputDialog("Ingrese el número de guía:");
 
 	                	Producto producto = new Producto(idProducto, nombreProducto, descripcionProducto, precioProducto, tipoProducto, cantidadProducto, fechaRegistro, null, bodegaEntrega, precioEnvio, placaVehiculo, numeroGuia);
-	                	producto.registrarProducto();
+	                	producto.registrarProducto(producto);
+	                	break;
 
 	                case 5:
 	                    // Lógica para registrar un envío marítimo

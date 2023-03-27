@@ -13,6 +13,7 @@ public class Bodega {
     // getters y setters para los atributos id, nombre y direccion
 
     public void registrarBodega() {
+    	
         // código para registrar la bodega en la base de datos
     }
 }
